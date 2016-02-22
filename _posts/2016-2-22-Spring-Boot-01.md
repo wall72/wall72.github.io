@@ -13,8 +13,8 @@ title: Spring Boot Hello - Step 01
 * Packaging: War
 * Dependencies: Web
 
-![Screenshot #0](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-01.tiff?raw=true)
-![Screenshot #0](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-02.tiff?raw=true)
+![Screenshot #0](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-01.png?raw=true)
+![Screenshot #0](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-02.png?raw=true)
 
 ####2. build.gradle dependency 추가
 * jstl, tomcat-embed-jasper 추가
@@ -69,7 +69,7 @@ public class HelloController {
 ####5. JSP 생성
 ; webapp/WEB-INF/jsp/hello.jsp
 
-![Screenshot #2](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-04.tiff?raw=true)
+![Screenshot #2](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-04.png?raw=true)
 
 ```{.jsp}
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -94,4 +94,4 @@ public class HelloController {
 ####7. Test
 ; http://localhost:8080/hello
 
-![Screenshot #3](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-05.tiff?raw=true)
+![Screenshot #3](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-05.png?raw=true)
