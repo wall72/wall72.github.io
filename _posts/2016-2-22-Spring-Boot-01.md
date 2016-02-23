@@ -19,7 +19,7 @@ title: Spring Boot Hello - Step 01
 ![Screenshot #0](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-01.png?raw=true)
 ![Screenshot #0](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-02.png?raw=true)
 
-####2. build.gradle dependency 추가
+#### 2. build.gradle dependency 추가
 * jstl, tomcat-embed-jasper 추가
 
 ```{.no-highlight}
@@ -29,7 +29,7 @@ providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
 
 * Gradle > Refresh All
 
-####3. application.properties 수정
+#### 3. application.properties 수정
 ; Server, Spring.mvc 설정
 
 ```{.no-highlight}
@@ -43,10 +43,10 @@ spring.mvc.view.prefix=/WEB-INF/jsp/
 spring.mvc.view.suffix=.jsp
 ```
 
-####Spring Boot 소스 폴더구조
+#### Spring Boot 소스 폴더구조
 ![Screenshot #1](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-06.png?raw=true)
 
-####4. Controller 생성
+#### 4. Controller 생성
 ; hello.web.HelloController
 
 ```{.java}
@@ -69,7 +69,7 @@ public class HelloController {
 }
 ```
 
-####5. JSP 생성
+#### 5. JSP 생성
 ; webapp/WEB-INF/jsp/hello.jsp
 
 ![Screenshot #2](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-04.png?raw=true)
@@ -91,14 +91,14 @@ public class HelloController {
 </html>
 ```
 
-####6. Start
+#### 6. Start
 ; Run As > Spring Boot App
 
-####7. Test
+#### 7. Test
 ; http://localhost:8080/hello
 
 ![Screenshot #3](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-05.png?raw=true)
 
-####8. Reference Sites
+#### 8. Reference Sites
 * [origoni's Blog from Millky](http://millky.com/@origoni/post/1100 "STS로 Spring Boot 웹 프로젝트 시작하기")
 * [Ticket Monster의 개발 이야기](http://tmondev.blog.me/220596351807 "웹 프로젝트의 간편한 시작, Spring Boot 와 데모 프로젝트")
