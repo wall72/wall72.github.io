@@ -54,6 +54,9 @@ baseurl: ""
 #
 
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
 highlighter: rouge
 permalink: /:title/
 
