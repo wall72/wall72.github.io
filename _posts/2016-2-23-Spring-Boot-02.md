@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot Hello - Step 01
+title: Spring Boot Hello - Step 02
 ---
 
 #### 목표
