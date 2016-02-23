@@ -9,7 +9,7 @@ title: Spring Boot Hello - Step 01
 * Mac OS
 
 #### 소스 코드 (Source)
-<https://github.com/wall72/SpringBootHello/releases/tag/0.0.1-SNAPSHOT>
+* [0.0.1-SNAPSHOT](https://github.com/wall72/SpringBootHello/releases/tag/0.0.1-SNAPSHOT "Spring Boot Hello - Step 01")
 
 #### 1. Create Project
 * New > Spring Starter Project
