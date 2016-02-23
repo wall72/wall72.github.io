@@ -141,8 +141,6 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 ```java
 package hello.service;
 
-package hello.service;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -343,8 +341,28 @@ public class PostController {
 </html>
 ```
 
-8. 테스트
+#### 8. Start
+* Spring Boot Project의 기동은 Dependency로 추가된 Tomcat 등의 WAS를 Application의 기동으로 실행하는 방법과 IDE툴의 기능을 이용하는 방법이 있다.
+* 기본적으로 Spring Boot Project 를 이용하여 실행한다.
+* {Project} > Run As > Spring Boot App
+
+#### 8. Test
+* 웹브라우저로 결과를 확인한다.
+
 * 블로그 목록 > http://localhost:8080/post/list
+![Screenshot #3](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-11.png?raw=true)
+
 * 블로그 글 > http://localhost:8080/post/{id}
+![Screenshot #4](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-10.png?raw=true)
+
 * 글 작성 > http://localhost:8080/post/write
+![Screenshot #5](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-09.png?raw=true)
+
 * 글 삭제 > http://localhost:8080/post/{id}/delete
+
+* DBMS 확인 > http://localhost:8080/console
+![Screenshot #6](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-12.png?raw=true)
+
+#### 8. Reference Sites
+* [origoni's Blog from Millky](http://millky.com/@origoni/post/1100 "STS로 Spring Boot 웹 프로젝트 시작하기")
+* [Ticket Monster의 개발 이야기](http://tmondev.blog.me/220596351807 "웹 프로젝트의 간편한 시작, Spring Boot 와 데모 프로젝트")
