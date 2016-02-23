@@ -9,10 +9,10 @@ layout: default
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
       <div class="entry">
-        {{ post.content | strip_html | truncatewords:40}}
+        {{ post.excerpt }}
       </div>
       
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">더 읽기</a>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
   {% endfor %}
 </div>
@@ -21,9 +21,9 @@ layout: default
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; 이전</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; prev</a>
   {% else %}
-    <span>&laquo; 이전</span>
+    <span>&laquo; prev</span>
   {% endif %}
 
   {% for page in (1..paginator.total_pages) %}
@@ -37,9 +37,9 @@ layout: default
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">다음 &raquo;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">next &raquo;</a>
   {% else %}
-    <span>다음 &raquo;</span>
+    <span>next &raquo;</span>
   {% endif %}
 </div>
 {% endif %}
