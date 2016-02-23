@@ -7,7 +7,7 @@ title: Spring Boot Hello - Step 01
 * STS 3.7.2
 * JDK 1.8.0_65
 * Mac OS
-* 
+
 #### 소스 코드 (Source)
 <https://github.com/wall72/SpringBootHello/releases/tag/0.0.1-SNAPSHOT>
 
@@ -98,3 +98,7 @@ public class HelloController {
 ; http://localhost:8080/hello
 
 ![Screenshot #3](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-05.png?raw=true)
+
+####8. Reference Sites
+* [origoni's Blog from Millky](http://millky.com/@origoni/post/1100 "STS로 Spring Boot 웹 프로젝트 시작하기")
+* [Ticket Monster의 개발 이야기](http://tmondev.blog.me/220596351807 "웹 프로젝트의 간편한 시작, Spring Boot 와 데모 프로젝트")
