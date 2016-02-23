@@ -29,6 +29,9 @@ compile("org.springframework.boot:spring-boot-starter-data-jpa")
 runtime("com.h2database:h2")
 ```
 
+* JPA 관련 코드 작성시 IDE에서 에러가 발생하지 않도록 Dependencies를 Update한다. (Maven의 Update Project와 동일)
+* {Project} > Gradle > Refresh All
+
 #### 2. H2 Console 설정 추가
 * H2 데이터베이스를 접속하여 저장소를 확인, 관리 하기 위해 application.properties 에 설정 추가
 
@@ -41,7 +44,7 @@ spring.h2.console.path=/console
 * Spring Boot 의 application.properties 기본설정을 살펴보면 H2 의 디폴트 기동 정보를 알 수 있다.
 * [작성참조](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html "Common application properties")
 
-* 접속테스트 (JDBC URL 을 변경해야 함)
+* 접속테스트 (http://localhost:8080/console)
 * JDBC URL > jdbc:h2:mem:testdb
 
 ![Screenshot #1](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-07.png?raw=true)
@@ -110,6 +113,8 @@ public class Post {
 * 추가로 자동 부여된 값을 부여하고 싶을 경우 (like sequence) @GeneratedValue 를 지정한다.
 
 * 어플리케이션 기동 후 H2 Console 확인하면 테이블 자동 생성되어있음을 확인할 수 있다.
+
+![Screenshot #2](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-08.png?raw=true)
 
 #### 4. Repository 인터페이스 추가
 * JPA 를 통한 자료 저장을 위해 domain 패키지에 JpaRepository 를 상속한 인터페이스를 추가한다.
