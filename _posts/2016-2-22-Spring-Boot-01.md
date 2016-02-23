@@ -74,7 +74,7 @@ public class HelloController {
 
 ![Screenshot #2](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-04.png?raw=true)
 
-```java
+```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
