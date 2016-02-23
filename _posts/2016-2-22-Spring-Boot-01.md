@@ -22,7 +22,7 @@ title: Spring Boot Hello - Step 01
 #### 2. build.gradle dependency 추가
 * jstl, tomcat-embed-jasper 추가
 
-```{.no-highlight}
+```
 compile('javax.servlet:jstl')
 providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
 ```
