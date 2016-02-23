@@ -32,7 +32,7 @@ providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
 #### 3. application.properties 수정
 ; Server, Spring.mvc 설정
 
-```{.no-highlight}
+```
 #Server
 server.port=8080
 server.display-name=spring-boot-jsp
@@ -49,7 +49,7 @@ spring.mvc.view.suffix=.jsp
 #### 4. Controller 생성
 ; hello.web.HelloController
 
-```{.java}
+```java
 package hello.web;
 
 import java.util.Date;
@@ -74,7 +74,7 @@ public class HelloController {
 
 ![Screenshot #2](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-04.png?raw=true)
 
-```{.jsp}
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
