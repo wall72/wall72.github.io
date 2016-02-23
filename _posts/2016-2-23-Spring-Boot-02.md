@@ -350,17 +350,21 @@ public class PostController {
 * 웹브라우저로 결과를 확인한다.
 
 * 블로그 목록 > http://localhost:8080/post/list
+
 ![Screenshot #3](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-11.png?raw=true)
 
 * 블로그 글 > http://localhost:8080/post/{id}
+
 ![Screenshot #4](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-10.png?raw=true)
 
 * 글 작성 > http://localhost:8080/post/write
+
 ![Screenshot #5](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-09.png?raw=true)
 
 * 글 삭제 > http://localhost:8080/post/{id}/delete
 
 * DBMS 확인 > http://localhost:8080/console
+
 ![Screenshot #6](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-12.png?raw=true)
 
 #### 8. Reference Sites
