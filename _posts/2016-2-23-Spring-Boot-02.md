@@ -346,7 +346,7 @@ public class PostController {
 * 기본적으로 Spring Boot Project 를 이용하여 실행한다.
 * {Project} > Run As > Spring Boot App
 
-#### 8. Test
+#### 9. Test
 * 웹브라우저로 결과를 확인한다.
 
 * 블로그 목록 > http://localhost:8080/post/list
@@ -367,6 +367,6 @@ public class PostController {
 
 ![Screenshot #6](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-12.png?raw=true)
 
-#### 8. Reference Sites
+#### 10. Reference Sites
 * [origoni's Blog from Millky](http://millky.com/@origoni/post/1100 "STS로 Spring Boot 웹 프로젝트 시작하기")
 * [Ticket Monster의 개발 이야기](http://tmondev.blog.me/220596351807 "웹 프로젝트의 간편한 시작, Spring Boot 와 데모 프로젝트")
