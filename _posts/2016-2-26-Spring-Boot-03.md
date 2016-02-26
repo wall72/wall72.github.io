@@ -84,8 +84,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 * {Project}/src/main/resources/import.sql
 
 ```sql
-insert into User(id, username, password, role) values (1, 'user', 'password', 'USER');
-insert into User(id, username, password, role) values (2, 'admin', 'password', 'ADMIN');
+insert into User(id, username, password, role) values (1, 'user', 'password', 'ROLE_USER');
+insert into User(id, username, password, role) values (2, 'admin', 'password', 'ROLE_ADMIN');
 insert into post(id, subject, content, reg_date) values (1, 'Blog Title #1', 'Content - blur blur', CURRENT_TIMESTAMP);
 insert into post(id, subject, content, reg_date) values (2, 'Blog Title #2', 'Content - klur klur', CURRENT_TIMESTAMP);
 ```
@@ -157,9 +157,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/hello", "/post/list").permitAll() // 모두 허용
-                .anyRequest().authenticated()                    // 나머지는 인증
+                .antMatchers("/hello", "/post/list").permitAll()               // 모두 허용
                 .antMatchers("/post/write", "/post/*/delete").hasRole("ADMIN") // ADMIN만 접근 가능
+                .anyRequest().authenticated()                                  // 나머지는 인증
                 .and()
             .formLogin()
                 .loginPage("/login").permitAll()
@@ -170,10 +170,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER").and()
-                .withUser("admin").password("password").roles("ADMIN");
+	    auth
+	        .inMemoryAuthentication()
+	            .withUser("user")
+	                .password("password")
+	                .roles("USER")
+	                .and()
+	            .withUser("admin")
+	                .password("password")
+	                .roles("ADMIN");
     }
 }
 ```
@@ -183,20 +188,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 * 일단은 JPA연계 없이 간단히 메모리에 User 정보를 정의해서 테스트한다.
 
 * [사용참조](http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc "Spring Security Java Configuration")
+* Spring Security 상에서 정의되는 Role 이름은 내부적으로 'ROLE_'이 prefix로 붙어서 처리된다. 해서 DB 등에서 저장된 원래의 값은 'ROLE_'을 가지고 있거나 가져올때 추가해야 한다.
 
 * 어플리케이션 실행 후 정책대로 되는지 확인한다.
 * 로그아웃은 http://localhost:8080/logout > csrf 방지가 켜져있는 경우는 POST로 호출해야 한다.
 
 
 #### 8. Service 클래스 추가
-* 로그인을 처리하기 위해 service 패키지에 UserDetailService 클래스를 상속받은 서비스를 추가한다.
+* 로그인을 처리하기 위해 service 패키지에 UserDetailsService 클래스를 상속받은 서비스를 추가한다.
 * hello.service.SimpleUserDetailService
 
 ```java
 package hello.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -210,29 +216,21 @@ import org.springframework.stereotype.Service;
 import hello.domain.UserRepository;
 
 @Service
-public class SimpleUserDetailService implements UserDetailsService {
+public class SimpleUserDetailsService implements UserDetailsService {
+	
+	@Autowired
+	private UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		hello.domain.User user = userRepository.findByUsername(username);
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        hello.domain.User user = userRepository.findByUsername(username);
+		Collection<GrantedAuthority> authorities = Arrays.asList((GrantedAuthority)new SimpleGrantedAuthority(user.getRole()));
+		UserDetails userDetails = new User(user.getUsername(), user.getPassword(), authorities);
 
-        List<GrantedAuthority> authorities = buildUserAuthority(user.getRole());
-
-        return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
-    }
-
-    private List<GrantedAuthority> buildUserAuthority(String userRole) {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
-        authorities.add(new SimpleGrantedAuthority(userRole));
-
-        return authorities;
-    }
+		return userDetails;
+	}
 }
-
 ```
 
 * JPA를 통해 User 저장소에서 유저를 찾아오는 역할을 한다.
@@ -242,6 +240,9 @@ public class SimpleUserDetailService implements UserDetailsService {
 * 앞서 만들었던 Spring Security 설정 파일에 적용한다.
 
 ```java
+// ...
+    @Autowired
+	private UserDetailsService userDetailsService;
 // ...
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -278,8 +279,8 @@ public class SimpleUserDetailService implements UserDetailsService {
         http
             .authorizeRequests()
                 .antMatchers("/hello", "/post/list").permitAll()
-                .anyRequest().authenticated()
                 .antMatchers("/post/write", "/post/*/delete").hasRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login").permitAll()
