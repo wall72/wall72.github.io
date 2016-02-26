@@ -185,7 +185,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 * [사용참조](http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc "Spring Security Java Configuration")
 
 * 어플리케이션 실행 후 정책대로 되는지 확인한다.
-* 로그아웃은 http://localhost:8080/logout
+* 로그아웃은 http://localhost:8080/logout > csrf 방지가 켜져있는 경우는 POST로 호출해야 한다.
 
 
 #### 8. Service 클래스 추가
@@ -251,7 +251,6 @@ public class SimpleUserDetailService implements UserDetailsService {
 ```
 
 * 어플리케이션 실행 후 정책대로 되는지 확인한다.
-* 로그아웃은 http://localhost:8080/logout
 
 
 #### 9. Remember-me 의 적용
