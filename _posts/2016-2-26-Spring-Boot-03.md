@@ -110,7 +110,7 @@ public class HelloController {
 }
 ```
 
-#### 6. login.jspP 추가
+#### 6. login.jsp 추가
 * 로그인 처리를 위한 login.jsp 를 추가한다.
 * username, password, 외에 csrf 를 추가로 정의 한다.
 * csrf는 CSRF 공격을 방어하기 위한 것으로 Spring boot에 적용된 Spring Security 에선 기본 설정 항목이다. (옵션을 끌 수도 있지만 보안상 권고하지 않는다.)
