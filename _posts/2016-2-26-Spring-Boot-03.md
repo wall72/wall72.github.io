@@ -279,8 +279,8 @@ public class SimpleUserDetailService implements UserDetailsService {
         http
             .authorizeRequests()
                 .antMatchers("/hello", "/post/list").permitAll()
-                .antMatchers("/post/write", "/post/*/delete").hasRole("ADMIN")
                 .anyRequest().authenticated()
+                .antMatchers("/post/write", "/post/*/delete").hasRole("ADMIN")
                 .and()
             .formLogin()
                 .loginPage("/login").permitAll()
