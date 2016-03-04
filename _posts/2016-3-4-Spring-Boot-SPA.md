@@ -272,5 +272,6 @@ Header : Content-Type: application/json
 
 ![Screenshot #5](https://github.com/wall72/wall72.github.io/blob/master/images/spring-boot-spa-05.png?raw=true)
 
-#### 11. Reference Sites
+#### 8. Reference Sites
 * [Rapid prototyping with Spring Boot and AngularJS](http://g00glen00b.be/prototyping-spring-boot-angularjs "Rapid prototyping with Spring Boot and AngularJS")
+
