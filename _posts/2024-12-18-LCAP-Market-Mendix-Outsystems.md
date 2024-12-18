@@ -5,7 +5,8 @@ title: LCAP Market - Mendix, Outsystems
 
 ### Mendix Outsystems 등의 Low Code Platform 의 시장 전망과 한계점
 
-로우 코드 플랫폼 시장은 빠르게 성장하고 있지만, 동시에 여러 한계점도 존재합니다. Mendix와 OutSystems 등 주요 플랫폼을 중심으로 시장 전망과 한계점을 살펴보겠습니다.
+- 로우 코드 플랫폼 시장은 빠르게 성장하고 있지만, 동시에 여러 한계점도 존재합니다.
+- Mendix와 OutSystems 등 주요 플랫폼을 중심으로 시장 전망과 한계점을 살펴보겠습니다.
 
 ### 시장 전망
 
